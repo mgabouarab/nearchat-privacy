@@ -1,183 +1,437 @@
 <!doctype html>
-<html lang="en" id="root">
+<html lang="en" data-theme="auto">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NearChat — Privacy Policy. We don't collect data, because there's no server to collect it on.">
+<meta name="theme-color" content="#6A5AE0">
 <title>NearChat — Privacy Policy</title>
+
 <style>
-  :root { color-scheme: light dark; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    max-width: 720px;
-    margin: 40px auto;
-    padding: 0 20px;
-    line-height: 1.6;
-    color: #1c1e2a;
-    background: #ffffff;
-  }
-  body[dir="rtl"] {
-    font-family: "SF Arabic", "Geeza Pro", Tahoma, Arial, sans-serif;
-  }
-  @media (prefers-color-scheme: dark) {
-    body { background: #1c1e2a; color: #f1f2f6; }
-    a { color: #8e78ff; }
-  }
-  h1 { font-size: 28px; margin-bottom: 4px; }
-  h2 { font-size: 18px; margin-top: 32px; }
-  .subtitle { color: #6b7280; margin-top: 0; font-size: 14px; }
-  hr { border: 0; border-top: 1px solid rgba(127,127,127,0.25); margin: 32px 0; }
-  footer { margin-top: 48px; font-size: 13px; color: #6b7280; }
+:root {
+  --primary-start: #6A5AE0;
+  --primary-end: #8E78FF;
+  --accent: #FF7AC6;
+  --primary-grad: linear-gradient(135deg, #6A5AE0 0%, #8E78FF 100%);
 
-  .lang-toggle {
-    display: inline-flex;
-    gap: 8px;
-    margin-bottom: 24px;
-    padding: 4px;
-    background: rgba(110, 90, 224, 0.08);
-    border-radius: 999px;
-  }
-  .lang-toggle button {
-    border: 0;
-    background: transparent;
-    padding: 6px 14px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 600;
-    color: inherit;
-    font-family: inherit;
-  }
-  .lang-toggle button.active {
-    background: linear-gradient(135deg, #6A5AE0, #8E78FF);
-    color: white;
-  }
+  --bg: #FFFFFF;
+  --surface: #F7F8FB;
+  --surface-2: #EEF0F6;
+  --text: #14151D;
+  --text-secondary: #6B7280;
+  --border: rgba(20, 21, 29, 0.08);
+  --shadow-sm: 0 4px 14px rgba(20, 21, 29, 0.06);
+  --shadow-md: 0 18px 40px rgba(106, 90, 224, 0.18);
+}
+[data-theme="dark"] {
+  --bg: #0B0C12;
+  --surface: #15171F;
+  --surface-2: #1F222C;
+  --text: #F1F2F6;
+  --text-secondary: #9AA0AC;
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
 
-  .lang { display: none; }
-  .lang.active { display: block; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+body[dir="rtl"] {
+  font-family: "SF Arabic", "Geeza Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, Arial, sans-serif;
+}
+a { color: var(--primary-start); text-decoration: none; transition: color 200ms ease; }
+[data-theme="dark"] a { color: var(--primary-end); }
+a:hover { text-decoration: underline; }
+button { font: inherit; cursor: pointer; border: 0; background: transparent; color: inherit; }
+
+/* Nav */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  padding: 16px 0;
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 760px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; color: var(--text); }
+.brand:hover { text-decoration: none; }
+.brand-mark {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: var(--primary-grad);
+  box-shadow: 0 6px 14px rgba(106,90,224,0.4);
+  display: grid; place-items: center;
+  color: white; font-weight: 800; font-size: 15px;
+}
+.nav-actions { display: flex; align-items: center; gap: 8px; }
+.icon-btn {
+  width: 34px; height: 34px; border-radius: 10px;
+  display: grid; place-items: center;
+  background: var(--surface); color: var(--text);
+  transition: background 200ms ease, transform 150ms ease;
+}
+.icon-btn:hover { background: var(--surface-2); }
+.icon-btn:active { transform: scale(0.94); }
+.icon-btn svg { width: 16px; height: 16px; }
+
+.lang-pill { display: inline-flex; padding: 4px; border-radius: 999px; background: var(--surface); }
+.lang-pill button {
+  padding: 4px 11px; border-radius: 999px; font-size: 11.5px; font-weight: 700;
+  color: var(--text-secondary); transition: all 200ms ease;
+}
+.lang-pill button.active { background: var(--primary-grad); color: white; }
+
+/* Page header */
+.page-head {
+  position: relative; isolation: isolate;
+  padding: 64px 24px 40px;
+  text-align: center;
+  overflow: hidden;
+}
+.page-head::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(60% 60% at 50% 0%, rgba(106,90,224,0.18) 0%, transparent 65%),
+    radial-gradient(40% 60% at 80% 30%, rgba(255,122,198,0.10) 0%, transparent 65%);
+  pointer-events: none;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 999px; margin-bottom: 20px;
+  background: color-mix(in srgb, var(--primary-start) 12%, transparent);
+  color: var(--primary-start);
+  font-size: 12.5px; font-weight: 700; letter-spacing: 0.01em;
+}
+[data-theme="dark"] .eyebrow { color: var(--primary-end); }
+.page-head h1 {
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.1; letter-spacing: -0.025em;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+.page-head h1 .grad {
+  background: var(--primary-grad);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
+.page-head .subtitle {
+  font-size: 15px; color: var(--text-secondary);
+}
+
+/* Content */
+main {
+  max-width: 720px; margin: 0 auto; padding: 24px 24px 64px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 36px 32px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+.intro p { font-size: 16.5px; color: var(--text-secondary); }
+
+section h2 {
+  font-size: 20px; font-weight: 700; letter-spacing: -0.01em;
+  margin: 36px 0 14px; padding-top: 8px;
+  display: flex; align-items: center; gap: 12px;
+}
+section h2:first-child { margin-top: 0; }
+.section-num {
+  flex-shrink: 0;
+  width: 30px; height: 30px; border-radius: 10px;
+  background: color-mix(in srgb, var(--primary-start) 12%, transparent);
+  color: var(--primary-start);
+  display: grid; place-items: center;
+  font-weight: 800; font-size: 13px; letter-spacing: 0;
+}
+[data-theme="dark"] .section-num { color: var(--primary-end); }
+
+section p { color: var(--text-secondary); margin-bottom: 12px; font-size: 15.5px; }
+section p strong { color: var(--text); font-weight: 700; }
+section ul { padding-left: 22px; margin-bottom: 12px; color: var(--text-secondary); font-size: 15.5px; }
+body[dir="rtl"] section ul { padding-left: 0; padding-right: 22px; }
+section ul li { margin-bottom: 6px; }
+section ul li strong { color: var(--text); font-weight: 700; }
+
+.callout {
+  margin-top: 24px;
+  padding: 20px 24px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary-start) 8%, transparent), color-mix(in srgb, var(--accent) 6%, transparent));
+  border: 1px solid color-mix(in srgb, var(--primary-start) 18%, transparent);
+  font-size: 14.5px; color: var(--text);
+}
+.callout strong { color: var(--primary-start); }
+[data-theme="dark"] .callout strong { color: var(--primary-end); }
+
+/* Footer */
+footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+.footer-row {
+  max-width: 720px; margin: 0 auto; padding: 0 24px;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer-links a { color: var(--text-secondary); }
+.footer-links a:hover { color: var(--text); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
 </style>
 </head>
 <body>
 
-<div class="lang-toggle">
-  <button id="btn-en" class="active" onclick="setLang('en')">English</button>
-  <button id="btn-ar" onclick="setLang('ar')">العربية</button>
-</div>
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="brand">
+      <div class="brand-mark">N</div>
+      <span>NearChat</span>
+    </a>
+    <div class="nav-actions">
+      <div class="lang-pill">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ar" onclick="setLang('ar')">AR</button>
+      </div>
+      <button class="icon-btn" id="theme-btn" aria-label="Toggle theme" title="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.64 13a9 9 0 11-10.63-10.63 1 1 0 011.05 1.36 7 7 0 008.22 8.22A1 1 0 0121.64 13z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
 
-<!-- ENGLISH -->
-<div id="lang-en" class="lang active">
-  <h1>NearChat Privacy Policy</h1>
-  <p class="subtitle">Effective date: 10 May 2026</p>
+<!-- Header -->
+<header class="page-head">
+  <div class="eyebrow"><span data-i18n="eyebrow">Updated 10 May 2026</span></div>
+  <h1><span data-i18n="title_a">Privacy</span> <span class="grad" data-i18n="title_b">in plain words.</span></h1>
+  <p class="subtitle" data-i18n="subtitle">There is no server. Which is why this page is short.</p>
+</header>
 
-  <p>NearChat is a peer-to-peer chat app that runs entirely on your local Wi-Fi network. There is no NearChat server, no account system, and no cloud. This page explains exactly what happens to your data.</p>
+<!-- Content -->
+<main>
 
-  <h2>1. Data we collect about you</h2>
-  <p><strong>None.</strong> NearChat has no backend. We do not operate any servers that receive your messages, contacts, identifiers, analytics, crash reports, or device information. No usage telemetry of any kind is transmitted off your device by NearChat.</p>
+  <div class="card intro">
+    <p data-i18n="intro">NearChat is a peer-to-peer chat app that runs entirely on your local Wi-Fi. There is no NearChat backend, no account system, no cloud. This page explains exactly what happens to your data.</p>
+  </div>
 
-  <h2>2. How chat data flows</h2>
-  <p>Messages, photos, videos, and voice notes are sent directly from your phone to your paired peer's phone over your local Wi-Fi network using a WebSocket connection. The connection is secured with end-to-end encryption (X25519 key agreement + ChaCha20-Poly1305 authenticated encryption). Neither NearChat nor any third party can read messages in transit.</p>
+  <div class="card">
+    <section>
+      <h2><span class="section-num">01</span><span data-i18n="h_1">Data we collect about you</span></h2>
+      <p><strong data-i18n="p_1_lead">None.</strong> <span data-i18n="p_1_body">NearChat has no backend. We do not operate any servers that receive your messages, contacts, identifiers, analytics, crash reports, or device information. No usage telemetry of any kind is transmitted off your device by NearChat.</span></p>
+    </section>
 
-  <h2>3. Data stored on your device</h2>
-  <p>The app stores the following locally on your device only:</p>
-  <ul>
-    <li>Your message history, attachments, and the paired peer's profile (name, avatar, chat background).</li>
-    <li>Cryptographic keys used to authenticate and decrypt messages.</li>
-    <li>Your settings (theme, font size, notification preferences, app-lock password hash, etc.).</li>
-  </ul>
-  <p>All of the above is encrypted at rest with AES-GCM. Cryptographic keys live in the iOS Keychain / Android Keystore. None of this leaves your device.</p>
+    <section>
+      <h2><span class="section-num">02</span><span data-i18n="h_2">How chat data flows</span></h2>
+      <p data-i18n="p_2">Messages, photos, videos, and voice notes are sent directly from your phone to your paired peer's phone over your local Wi-Fi network using a WebSocket connection. The connection is secured with end-to-end encryption (X25519 key agreement + ChaCha20-Poly1305 authenticated encryption). Neither NearChat nor any third party can read messages in transit.</p>
+    </section>
 
-  <h2>4. Permissions the app requests</h2>
-  <ul>
-    <li><strong>Camera</strong> — to scan the pairing QR code and to take photos to send in chat.</li>
-    <li><strong>Photo library</strong> — to attach existing photos and videos to messages.</li>
-    <li><strong>Microphone</strong> — to record voice messages.</li>
-    <li><strong>Local network</strong> — to discover and connect to the paired device on your Wi-Fi.</li>
-    <li><strong>Face ID / Touch ID / biometrics</strong> — only if you turn on the optional app lock.</li>
-    <li><strong>Notifications</strong> — to alert you when a new message arrives.</li>
-  </ul>
-  <p>Each permission is requested only when the corresponding feature is first used, and the app continues to function (with that feature disabled) if you deny a permission.</p>
+    <section>
+      <h2><span class="section-num">03</span><span data-i18n="h_3">Data stored on your device</span></h2>
+      <p data-i18n="p_3">The app stores the following locally on your device only:</p>
+      <ul>
+        <li data-i18n="p_3_l1">Your message history, attachments, and the paired peer's profile (name, avatar, chat background).</li>
+        <li data-i18n="p_3_l2">Cryptographic keys used to authenticate and decrypt messages.</li>
+        <li data-i18n="p_3_l3">Your settings (theme, font size, notification preferences, app-lock password hash, etc.).</li>
+      </ul>
+      <p data-i18n="p_3_tail">All of the above is encrypted at rest with AES-GCM. Cryptographic keys live in the iOS Keychain / Android Keystore. None of this leaves your device.</p>
+    </section>
 
-  <h2>5. Network requests the app does make</h2>
-  <p>The chat path itself never touches the internet. However, two side-features open opportunistic internet connections when available:</p>
-  <ul>
-    <li><strong>Update check</strong> — on launch, the app asks the App Store / Google Play whether a newer version exists. Apple and Google receive a standard product page request from your device; NearChat does not learn anything about you from this.</li>
-    <li><strong>Outbound links you tap</strong> — if a peer sends you a link and you tap it, the link opens in your browser (or the in-app browser), which then makes a request to that site as it normally would.</li>
-  </ul>
+    <section>
+      <h2><span class="section-num">04</span><span data-i18n="h_4">Permissions the app requests</span></h2>
+      <ul>
+        <li><strong data-i18n="perm_cam">Camera</strong> — <span data-i18n="perm_cam_d">to scan the pairing QR code and to take photos to send in chat.</span></li>
+        <li><strong data-i18n="perm_photo">Photo library</strong> — <span data-i18n="perm_photo_d">to attach existing photos and videos to messages.</span></li>
+        <li><strong data-i18n="perm_mic">Microphone</strong> — <span data-i18n="perm_mic_d">to record voice messages.</span></li>
+        <li><strong data-i18n="perm_lan">Local network</strong> — <span data-i18n="perm_lan_d">to discover and connect to the paired device on your Wi-Fi.</span></li>
+        <li><strong data-i18n="perm_bio">Face ID / Touch ID / biometrics</strong> — <span data-i18n="perm_bio_d">only if you turn on the optional app lock.</span></li>
+        <li><strong data-i18n="perm_notif">Notifications</strong> — <span data-i18n="perm_notif_d">to alert you when a new message arrives.</span></li>
+      </ul>
+      <p data-i18n="p_4_tail">Each permission is requested only when the corresponding feature is first used, and the app continues to function (with that feature disabled) if you deny a permission.</p>
+    </section>
 
-  <h2>6. Children</h2>
-  <p>NearChat is not directed to children under 13, and we knowingly do not collect data from anyone — children included. If you are a parent or guardian and have questions about your child's use of NearChat, please contact us.</p>
+    <section>
+      <h2><span class="section-num">05</span><span data-i18n="h_5">Network requests the app does make</span></h2>
+      <p data-i18n="p_5">The chat path itself never touches the internet. However, two side-features open opportunistic internet connections when available:</p>
+      <ul>
+        <li><strong data-i18n="net_upd">Update check</strong> — <span data-i18n="net_upd_d">on launch, the app asks the App Store / Google Play whether a newer version exists. Apple and Google receive a standard product page request from your device; NearChat does not learn anything about you from this.</span></li>
+        <li><strong data-i18n="net_link">Outbound links you tap</strong> — <span data-i18n="net_link_d">if a peer sends you a link and you tap it, the link opens in your browser (or the in-app browser), which then makes a request to that site as it normally would.</span></li>
+      </ul>
+    </section>
 
-  <h2>7. Changes to this policy</h2>
-  <p>If we change how the app handles data, we will update this page and bump the effective date above. The change will also be summarised in the app's release notes.</p>
+    <section>
+      <h2><span class="section-num">06</span><span data-i18n="h_6">Children</span></h2>
+      <p data-i18n="p_6">NearChat is not directed to children under 13, and we knowingly do not collect data from anyone — children included. If you are a parent or guardian and have questions about your child's use of NearChat, please contact us.</p>
+    </section>
 
-  <h2>8. Contact</h2>
-  <p>Questions or requests: <a href="mailto:mgabouarab@gmail.com">mgabouarab@gmail.com</a></p>
+    <section>
+      <h2><span class="section-num">07</span><span data-i18n="h_7">Changes to this policy</span></h2>
+      <p data-i18n="p_7">If we change how the app handles data, we will update this page and bump the effective date above. The change will also be summarised in the app's release notes.</p>
+    </section>
 
-  <hr>
-  <footer>NearChat is open about what it is: a phone-to-phone chat app that simply does not have a backend to collect data on. If you can read this page, you have already read everything we know about you, which is nothing.</footer>
-</div>
+    <section>
+      <h2><span class="section-num">08</span><span data-i18n="h_8">Contact</span></h2>
+      <p><span data-i18n="p_8">Questions or requests:</span> <a href="mailto:mgabouarab@gmail.com">mgabouarab@gmail.com</a></p>
+    </section>
+  </div>
 
-<!-- ARABIC -->
-<div id="lang-ar" class="lang">
-  <h1>سياسة خصوصية NearChat</h1>
-  <p class="subtitle">تاريخ السريان: 10 مايو 2026</p>
+  <div class="callout">
+    <strong data-i18n="callout_lead">TL;DR.</strong> <span data-i18n="callout_body">NearChat is a phone-to-phone chat app that simply does not have a backend to collect data on. If you can read this page, you have already read everything we know about you, which is nothing.</span>
+  </div>
 
-  <p>NearChat تطبيق دردشة بين جهازين يعمل بالكامل على شبكة الـ Wi-Fi المحلية الخاصة بك. لا يوجد خادم لـ NearChat، ولا نظام حسابات، ولا سحابة. هذه الصفحة توضح بالضبط ما الذي يحدث لبياناتك.</p>
+</main>
 
-  <h2>١. البيانات التي نجمعها عنك</h2>
-  <p><strong>لا شيء.</strong> NearChat ليس له أي backend. لا نشغّل أي خوادم تستقبل رسائلك أو جهات اتصالك أو معرّفاتك أو تحليلات أو تقارير أعطال أو معلومات جهازك. لا يتم إرسال أي بيانات استخدام من أي نوع خارج جهازك بواسطة NearChat.</p>
-
-  <h2>٢. كيف تتدفّق بيانات الدردشة</h2>
-  <p>الرسائل والصور والفيديوهات والرسائل الصوتية تُرسَل مباشرةً من هاتفك إلى هاتف الجهاز المقترن عبر شبكة الـ Wi-Fi المحلية باستخدام اتصال WebSocket. الاتصال مؤمَّن بتشفير من الطرف للطرف (X25519 لتبادل المفاتيح + ChaCha20-Poly1305 للتشفير المُوثَّق). لا يستطيع NearChat ولا أي طرف ثالث قراءة الرسائل أثناء النقل.</p>
-
-  <h2>٣. البيانات المخزَّنة على جهازك</h2>
-  <p>التطبيق يخزّن ما يلي محلياً على جهازك فقط:</p>
-  <ul>
-    <li>سجل رسائلك، المرفقات، وبيانات بروفايل الجهاز المقترن (الاسم، صورة البروفايل، خلفية الدردشة).</li>
-    <li>المفاتيح المشفّرة المستخدَمة للتحقق وفكّ تشفير الرسائل.</li>
-    <li>إعداداتك (الثيم، حجم الخط، تفضيلات الإشعارات، هاش كلمة سرّ قفل التطبيق، إلخ).</li>
-  </ul>
-  <p>كل ما سبق مشفَّر أثناء التخزين باستخدام AES-GCM. المفاتيح التشفيرية تعيش في iOS Keychain / Android Keystore. لا شيء من هذا يغادر جهازك.</p>
-
-  <h2>٤. الأذونات التي يطلبها التطبيق</h2>
-  <ul>
-    <li><strong>الكاميرا</strong> — لمسح كود QR الخاص بالاقتران ولالتقاط الصور المرسَلة في الدردشة.</li>
-    <li><strong>مكتبة الصور</strong> — لإرفاق صور وفيديوهات موجودة بالرسائل.</li>
-    <li><strong>الميكروفون</strong> — لتسجيل الرسائل الصوتية.</li>
-    <li><strong>الشبكة المحلية</strong> — لاكتشاف الجهاز المقترن والاتصال به على الـ Wi-Fi.</li>
-    <li><strong>Face ID / Touch ID / البصمة</strong> — فقط إذا فعّلت ميزة قفل التطبيق الاختيارية.</li>
-    <li><strong>الإشعارات</strong> — لتنبيهك عند وصول رسالة جديدة.</li>
-  </ul>
-  <p>كل إذن يُطلَب فقط عند أول استخدام للميزة المرتبطة به، والتطبيق يستمر في العمل (مع تعطيل تلك الميزة) إذا رفضت الإذن.</p>
-
-  <h2>٥. طلبات الشبكة التي يقوم بها التطبيق</h2>
-  <p>مسار الدردشة نفسه لا يلامس الإنترنت أبداً. لكن ميزتين جانبيتين تفتحان اتصالات إنترنت انتهازية عند توفرها:</p>
-  <ul>
-    <li><strong>فحص التحديثات</strong> — عند تشغيل التطبيق، يسأل App Store / Google Play إذا كان هناك إصدار أحدث. Apple و Google يستقبلان طلب صفحة منتج عادي من جهازك؛ NearChat لا يتعلم أي شيء عنك من هذا.</li>
-    <li><strong>الروابط الخارجية التي تضغط عليها</strong> — إذا أرسل لك جهاز مقترن رابطاً وضغطت عليه، يُفتَح الرابط في متصفحك (أو المتصفح داخل التطبيق)، الذي بدوره يطلب الموقع كالعادة.</li>
-  </ul>
-
-  <h2>٦. الأطفال</h2>
-  <p>NearChat غير موجَّه للأطفال دون سن الـ 13، ونحن لا نجمع بياناتٍ عن قصد من أي شخص — بما في ذلك الأطفال. إذا كنت أحد الوالدين أو وصياً ولديك أسئلة حول استخدام طفلك لـ NearChat، يُرجى التواصل معنا.</p>
-
-  <h2>٧. تعديلات على هذه السياسة</h2>
-  <p>إذا غيّرنا الطريقة التي يتعامل بها التطبيق مع البيانات، سنُحدِّث هذه الصفحة ونُعدِّل تاريخ السريان أعلاه. التغيير أيضاً سيُلخَّص في ملاحظات إصدار التطبيق.</p>
-
-  <h2>٨. التواصل</h2>
-  <p>للأسئلة أو الطلبات: <a href="mailto:mgabouarab@gmail.com">mgabouarab@gmail.com</a></p>
-
-  <hr>
-  <footer>NearChat صريح فيما هو عليه: تطبيق دردشة من هاتف لهاتف ليس له أصلاً backend ليجمع منه بيانات. إذا كنت قادراً على قراءة هذه الصفحة، فقد قرأت بالفعل كل ما نعرفه عنك، وهو لا شيء.</footer>
-</div>
+<!-- Footer -->
+<footer>
+  <div class="footer-row">
+    <div>© 2026 NearChat · <span data-i18n="ftr_tag">Made with care, not servers.</span></div>
+    <div class="footer-links">
+      <a href="../index.html" data-i18n="ftr_home">Home</a>
+      <a href="mailto:mgabouarab@gmail.com" data-i18n="ftr_support">Support</a>
+    </div>
+  </div>
+</footer>
 
 <script>
-  function setLang(lang) {
-    document.getElementById('lang-en').classList.toggle('active', lang === 'en');
-    document.getElementById('lang-ar').classList.toggle('active', lang === 'ar');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
-    document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-    document.documentElement.lang = lang;
+// Theme
+const themeBtn = document.getElementById('theme-btn');
+const root = document.documentElement;
+function applyTheme(t) {
+  if (t === 'auto') {
+    const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+    root.setAttribute('data-theme', dark ? 'dark' : 'light');
+  } else {
+    root.setAttribute('data-theme', t);
   }
+}
+applyTheme(localStorage.getItem('nc-theme') || 'auto');
+themeBtn.addEventListener('click', () => {
+  const cur = localStorage.getItem('nc-theme') || 'auto';
+  const next = cur === 'auto' ? 'light' : cur === 'light' ? 'dark' : 'auto';
+  localStorage.setItem('nc-theme', next);
+  applyTheme(next);
+});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  if ((localStorage.getItem('nc-theme') || 'auto') === 'auto') applyTheme('auto');
+});
+
+// Lang
+const i18n = {
+  en: {
+    eyebrow: "Updated 10 May 2026",
+    title_a: "Privacy",
+    title_b: "in plain words.",
+    subtitle: "There is no server. Which is why this page is short.",
+    intro: "NearChat is a peer-to-peer chat app that runs entirely on your local Wi-Fi. There is no NearChat backend, no account system, no cloud. This page explains exactly what happens to your data.",
+    h_1: "Data we collect about you",
+    p_1_lead: "None.",
+    p_1_body: "NearChat has no backend. We do not operate any servers that receive your messages, contacts, identifiers, analytics, crash reports, or device information. No usage telemetry of any kind is transmitted off your device by NearChat.",
+    h_2: "How chat data flows",
+    p_2: "Messages, photos, videos, and voice notes are sent directly from your phone to your paired peer's phone over your local Wi-Fi network using a WebSocket connection. The connection is secured with end-to-end encryption (X25519 key agreement + ChaCha20-Poly1305 authenticated encryption). Neither NearChat nor any third party can read messages in transit.",
+    h_3: "Data stored on your device",
+    p_3: "The app stores the following locally on your device only:",
+    p_3_l1: "Your message history, attachments, and the paired peer's profile (name, avatar, chat background).",
+    p_3_l2: "Cryptographic keys used to authenticate and decrypt messages.",
+    p_3_l3: "Your settings (theme, font size, notification preferences, app-lock password hash, etc.).",
+    p_3_tail: "All of the above is encrypted at rest with AES-GCM. Cryptographic keys live in the iOS Keychain / Android Keystore. None of this leaves your device.",
+    h_4: "Permissions the app requests",
+    perm_cam: "Camera", perm_cam_d: "to scan the pairing QR code and to take photos to send in chat.",
+    perm_photo: "Photo library", perm_photo_d: "to attach existing photos and videos to messages.",
+    perm_mic: "Microphone", perm_mic_d: "to record voice messages.",
+    perm_lan: "Local network", perm_lan_d: "to discover and connect to the paired device on your Wi-Fi.",
+    perm_bio: "Face ID / Touch ID / biometrics", perm_bio_d: "only if you turn on the optional app lock.",
+    perm_notif: "Notifications", perm_notif_d: "to alert you when a new message arrives.",
+    p_4_tail: "Each permission is requested only when the corresponding feature is first used, and the app continues to function (with that feature disabled) if you deny a permission.",
+    h_5: "Network requests the app does make",
+    p_5: "The chat path itself never touches the internet. However, two side-features open opportunistic internet connections when available:",
+    net_upd: "Update check", net_upd_d: "on launch, the app asks the App Store / Google Play whether a newer version exists. Apple and Google receive a standard product page request from your device; NearChat does not learn anything about you from this.",
+    net_link: "Outbound links you tap", net_link_d: "if a peer sends you a link and you tap it, the link opens in your browser (or the in-app browser), which then makes a request to that site as it normally would.",
+    h_6: "Children",
+    p_6: "NearChat is not directed to children under 13, and we knowingly do not collect data from anyone — children included. If you are a parent or guardian and have questions about your child's use of NearChat, please contact us.",
+    h_7: "Changes to this policy",
+    p_7: "If we change how the app handles data, we will update this page and bump the effective date above. The change will also be summarised in the app's release notes.",
+    h_8: "Contact",
+    p_8: "Questions or requests:",
+    callout_lead: "TL;DR.",
+    callout_body: "NearChat is a phone-to-phone chat app that simply does not have a backend to collect data on. If you can read this page, you have already read everything we know about you, which is nothing.",
+    ftr_tag: "Made with care, not servers.",
+    ftr_home: "Home",
+    ftr_support: "Support",
+  },
+  ar: {
+    eyebrow: "آخر تحديث: 10 مايو 2026",
+    title_a: "الخصوصية",
+    title_b: "بكلام واضح.",
+    subtitle: "مفيش خادم. عشان كده الصفحة دى قصيرة.",
+    intro: "NearChat تطبيق دردشة بين جهازين بيشتغل بالكامل على شبكة الـ Wi-Fi المحلية. مفيش backend لـ NearChat، ولا نظام حسابات، ولا سحابة. الصفحة دى بتشرح بالضبط ما يحدث لبياناتك.",
+    h_1: "البيانات اللى بنجمعها عنك",
+    p_1_lead: "لا شىء.",
+    p_1_body: "NearChat ما عندوش backend. مش بنشغّل أى خوادم تستقبل رسائلك أو جهات اتصالك أو معرّفاتك أو تحليلات أو تقارير أعطال أو معلومات جهازك. مفيش بيانات استخدام بتتبعت من جهازك خارجاً.",
+    h_2: "إزاى بيانات الدردشة بتتدفّق",
+    p_2: "الرسائل والصور والفيديوهات والرسائل الصوتية بتتبعت مباشرةً من هاتفك لهاتف الجهاز المقترن عبر شبكة الـ Wi-Fi المحلية باستخدام WebSocket. الاتصال مؤمَّن بتشفير من الطرف للطرف (X25519 لتبادل المفاتيح + ChaCha20-Poly1305 للتشفير المُوثَّق). مفيش حد، لا NearChat ولا أى طرف تالت، يقدر يقرأ الرسائل أثناء النقل.",
+    h_3: "البيانات المخزَّنة على جهازك",
+    p_3: "التطبيق بيخزّن الآتى محلياً على جهازك بس:",
+    p_3_l1: "سجل رسائلك، المرفقات، وبيانات بروفايل الجهاز المقترن (الاسم، صورة البروفايل، خلفية الدردشة).",
+    p_3_l2: "المفاتيح المشفّرة المستخدَمة للتحقق وفكّ تشفير الرسائل.",
+    p_3_l3: "إعداداتك (الثيم، حجم الخط، تفضيلات الإشعارات، هاش كلمة سرّ قفل التطبيق، إلخ).",
+    p_3_tail: "كل ما سبق مشفَّر أثناء التخزين باستخدام AES-GCM. المفاتيح التشفيرية فى iOS Keychain / Android Keystore. مفيش حاجة بتغادر جهازك.",
+    h_4: "الأذونات اللى التطبيق بيطلبها",
+    perm_cam: "الكاميرا", perm_cam_d: "لمسح كود QR للاقتران والتقاط الصور المرسَلة فى الدردشة.",
+    perm_photo: "مكتبة الصور", perm_photo_d: "لإرفاق صور وفيديوهات موجودة بالرسائل.",
+    perm_mic: "الميكروفون", perm_mic_d: "لتسجيل الرسائل الصوتية.",
+    perm_lan: "الشبكة المحلية", perm_lan_d: "لاكتشاف الجهاز المقترن والاتصال بيه على الـ Wi-Fi.",
+    perm_bio: "Face ID / Touch ID / البصمة", perm_bio_d: "بس لو فعّلت قفل التطبيق الاختيارى.",
+    perm_notif: "الإشعارات", perm_notif_d: "لتنبيهك عند وصول رسالة جديدة.",
+    p_4_tail: "كل إذن بيُطلَب بس عند أول استخدام للميزة المرتبطة بيه، والتطبيق بيستمر فى الشغل (مع تعطيل الميزة دى) لو رفضت الإذن.",
+    h_5: "طلبات الشبكة اللى التطبيق بيعملها",
+    p_5: "مسار الدردشة نفسه ما بيلامسش الإنترنت أبداً. لكن ميزتين جانبيتين بيفتحوا اتصالات إنترنت لو متاحة:",
+    net_upd: "فحص التحديثات", net_upd_d: "عند تشغيل التطبيق، بيسأل App Store / Google Play لو فيه إصدار أحدث. Apple و Google بيستقبلوا طلب صفحة منتج عادى من جهازك؛ NearChat ما بيعرفش أى حاجة عنك من ده.",
+    net_link: "الروابط الخارجية اللى بتدوس عليها", net_link_d: "لو جهاز مقترن بعتلك رابط ودوست عليه، الرابط بيفتح فى متصفحك (أو المتصفح داخل التطبيق)، اللى بدوره بيطلب الموقع زى ما بيعمل عادى.",
+    h_6: "الأطفال",
+    p_6: "NearChat مش موجَّه للأطفال تحت سن الـ 13، وإحنا ما بنجمعش بيانات عن قصد من أى حد — بما فى ذلك الأطفال. لو إنت ولى أمر وعندك أسئلة حول استخدام طفلك لـ NearChat، اتواصل معانا.",
+    h_7: "تعديلات على السياسة دى",
+    p_7: "لو غيّرنا طريقة تعامل التطبيق مع البيانات، هنحدّث الصفحة دى ونعدّل تاريخ السريان فوق. التغيير كمان هيتلخّص فى ملاحظات إصدار التطبيق.",
+    h_8: "التواصل",
+    p_8: "للأسئلة أو الطلبات:",
+    callout_lead: "خلاصة الكلام.",
+    callout_body: "NearChat تطبيق دردشة من هاتف لهاتف ما عندوش أصلاً backend يجمع منه بيانات. لو قدرت تقرأ الصفحة دى، فإنت قريت بالفعل كل اللى عارفينه عنك، وهو لا شىء.",
+    ftr_tag: "مصنوع باهتمام، مش بخوادم.",
+    ftr_home: "الرئيسية",
+    ftr_support: "الدعم",
+  }
+};
+
+function setLang(lang) {
+  document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang] && i18n[lang][key]) el.textContent = i18n[lang][key];
+  });
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+  localStorage.setItem('nc-lang', lang);
+}
+const savedLang = localStorage.getItem('nc-lang') || (navigator.language.startsWith('ar') ? 'ar' : 'en');
+setLang(savedLang);
 </script>
 
 </body>
