@@ -514,6 +514,9 @@ footer {
       <p class="lede reveal" data-delay="200" data-i18n="lede">
         NearChat connects two phones over your Wi-Fi — fully end-to-end encrypted, with no servers, no accounts, no cloud.
       </p>
+      <p class="lede reveal" data-delay="250" data-i18n="moon" style="font-size: 14px; opacity: 0.85; margin-top: -20px;">
+        🌙 Works anywhere on Earth. And the Moon.
+      </p>
       <div class="hero-ctas reveal" data-delay="300">
         <a class="store-badge" href="https://apps.apple.com/us/app/near-chat/id6768108842" id="appstore-link">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
@@ -791,6 +794,10 @@ footer {
         <summary data-i18n="q6">Can I unlock the app with Face ID?</summary>
         <div class="body" data-i18n="a6">Yes, optionally. Set a password first, then turn on biometrics. The password hash never leaves the device, and biometric data never enters the app — iOS / Android handle it.</div>
       </details>
+      <details class="faq-item reveal">
+        <summary data-i18n="q7">Does NearChat work on the Moon? 🌙</summary>
+        <div class="body" data-i18n="a7">Technically, yes. NearChat doesn't care about the internet, cell towers, or GPS — it only needs two devices on the same Wi-Fi. Open a Personal Hotspot on the Moon and another phone can join it, because Wi-Fi is just radio waves and radio waves travel through vacuum perfectly fine (that's how Apollo astronauts spoke to Houston). So as far as we know, NearChat is the first chat app that works on the Moon.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -851,6 +858,7 @@ const i18n = {
     h1a: "Chat that",
     h1b: "never goes online.",
     lede: "NearChat connects two phones over your Wi-Fi — fully end-to-end encrypted, with no servers, no accounts, no cloud.",
+    moon: "🌙 Works anywhere on Earth. And the Moon.",
     dl_on: "Download on the",
     soon: "Coming soon to",
     peer_name: "Alex",
@@ -893,6 +901,7 @@ const i18n = {
     q4: "What happens if my friend's phone gets a new IP?", a4: "NearChat re-discovers them automatically by scanning your local /24 subnet on the chat port. You don't have to re-pair when the router shuffles DHCP leases.",
     q5: "Do you collect anything?", a5: "No. There is no analytics SDK, no crash reporter, no telemetry. The privacy page explains every byte of network traffic the app generates.",
     q6: "Can I unlock the app with Face ID?", a6: "Yes, optionally. Set a password first, then turn on biometrics. The password hash never leaves the device, and biometric data never enters the app — iOS / Android handle it.",
+    q7: "Does NearChat work on the Moon? 🌙", a7: "Technically, yes. NearChat doesn't care about the internet, cell towers, or GPS — it only needs two devices on the same Wi-Fi. Open a Personal Hotspot on the Moon and another phone can join it, because Wi-Fi is just radio waves and radio waves travel through vacuum perfectly fine (that's how Apollo astronauts spoke to Houston). So as far as we know, NearChat is the first chat app that works on the Moon.",
     cta_h: "Stop chatting through someone else's server.",
     cta_p: "NearChat is free, has no ads, no accounts, and no cloud. Just two phones and your Wi-Fi.",
     cta_btn: "Download on the App Store",
@@ -905,6 +914,7 @@ const i18n = {
     h1a: "دردشة",
     h1b: "لا تخرج للإنترنت أبداً.",
     lede: "NearChat يربط هاتفين عبر شبكة الـ Wi-Fi المحلية — مشفّر بالكامل من الطرف للطرف، بدون خوادم، بدون حسابات، بدون سحابة.",
+    moon: "🌙 بيشتغل فى أى مكان على الأرض. وعلى القمر كمان.",
     dl_on: "حمّل من",
     soon: "قريباً على",
     peer_name: "آدم",
@@ -947,6 +957,7 @@ const i18n = {
     q4: "لو هاتف صاحبى أخد IP جديد؟", a4: "NearChat بيـrediscover تلقائياً عن طريق scan للـ /24 subnet المحلى على بورت الدردشة. مش محتاج تعمل re-pair لو الراوتر غيّر DHCP leases.",
     q5: "بتجمعوا أى داتا؟", a5: "لأ. مفيش analytics SDK، مفيش crash reporter، مفيش telemetry. صفحة الخصوصية بتشرح كل بايت traffic بيعمله التطبيق.",
     q6: "أقدر أفتح التطبيق بـFace ID؟", a6: "أيوه، اختيارى. حدّد كلمة سر الأول، بعدين فعّل البصمة. هاش الكلمة مش بيغادر الجهاز، وبيانات البصمة مش بتدخل التطبيق — iOS / Android بيتعاملوا معاها.",
+    q7: "هل NearChat بيشتغل على القمر؟ 🌙", a7: "تقنياً، أيوه. NearChat مش مهتم بالإنترنت ولا أبراج المحمول ولا GPS — هو محتاج بس جهازين على نفس الـ Wi-Fi. افتح Personal Hotspot على القمر وهاتف تانى هيقدر يتّصل بيه، لأن الـ Wi-Fi مجرد موجات راديو، والموجات الراديوية بتنتقل فى الفراغ عادى (ده اللى رواد أبولو اتكلموا بيه مع هيوستن). ف على حد علمنا، NearChat هو أول تطبيق دردشة بيشتغل على القمر.",
     cta_h: "بطّل تتكلّم على خادم بتاع حد تانى.",
     cta_p: "NearChat مجانى، بدون إعلانات، بدون حسابات، بدون سحابة. هاتفين و Wi-Fi بس.",
     cta_btn: "حمّل من App Store",
